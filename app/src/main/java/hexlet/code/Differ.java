@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Map;
 
 public class Differ {
     public static String generate(String filepath1, String filepath2, String format) throws Exception {
@@ -12,7 +13,8 @@ public class Differ {
         String fileFormat1 = getFileType (filepath1);
         String fileFormat2 = getFileType (filepath2);
 
-
+       Map<String, Object> file1 = Parser.parse (content1, fileFormat1);
+       Map<String, Object> file2 = Parser.parse (content2, fileFormat2);
         return "";
     }
 
