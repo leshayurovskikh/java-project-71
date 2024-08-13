@@ -1,8 +1,11 @@
 package hexlet.code;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.Map;
 
 public class Differ {
@@ -15,7 +18,11 @@ public class Differ {
 
        Map<String, Object> file1 = Parser.parse (content1, fileFormat1);
        Map<String, Object> file2 = Parser.parse (content2, fileFormat2);
+
+        List<Map<String, Object>> compareResult = Comparator.compare (file1,file2);
+
         return "";
+
     }
 
 public static String readFile(String filepath) throws Exception {
