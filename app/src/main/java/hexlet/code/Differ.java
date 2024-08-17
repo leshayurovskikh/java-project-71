@@ -21,7 +21,7 @@ public class Differ {
 
         List<Map<String, Object>> compareResult = Comparator.compare (file1,file2);
 
-        return "";
+        return Formatter.format (compareResult);
 
     }
 
