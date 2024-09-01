@@ -37,6 +37,7 @@ public static String readFile(String filepath) throws Exception {
     return content;
 }
 
+
     private static String getFileType(String filepath) {
         var type = filepath.substring(filepath.lastIndexOf(".") + 1);
         return type;

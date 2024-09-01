@@ -6,6 +6,16 @@ build/
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
+.gradle
+build/
+!app/gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+**/logs/
+
+### IntelliJ IDEA ###
+.idea/
+.idea/modules.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/
@@ -20,7 +30,7 @@ out/
 .apt_generated
 .classpath
 .factorypath
-.project
+.project*
 .settings
 .springBeans
 .sts4-cache

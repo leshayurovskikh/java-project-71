@@ -1,29 +1,33 @@
-name: Java CI
+help:
+	./build/install/app/bin/app -h
 
-on:
-  - push
-  - pull_request
+install-with-json:
+	./build/install/app/bin/app src/test/resources/file1.json src/test/resources/file2.json
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+install-with-yaml:
+	./build/install/app/bin/app src/test/resources/file1.yml src/test/resources/file2.yml
 
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-java@v3
-        with:
-          java-version: '21'
-          distribution: 'temurin'
-      - uses: gradle/gradle-build-action@v2
-        with:
-          gradle-version: 8.5
-          arguments: build
-          build-root-directory: app
-      - name: Publish code coverage
-        uses: paambaati/codeclimate-action@v5.0.0
-        env:
-          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
-          JACOCO_SOURCE_PATH: app/src/main/java
-        with:
-          coverageCommand: make report
-          coverageLocations: ${{github.workspace}}/app/build/reports/jacoco/test/jacocoTestReport.xml:jacoco
+run-dist:
+	./build/install/app/bin/app
+
+start:
+	./gradlew run
+
+build:
+	./gradlew build
+
+clean:
+	./gradlew clean
+
+test:
+	./gradlew test
+
+report:
+	./gradlew jacocoTestReport
+
+lint:
+	./gradlew checkstyleMain checkstyleTest
+
+build-run: build run-dist
+
+.PHONY: buildocations: ${{github.workspace}}/app/build/reports/jacoco/test/jacocoTestReport.xml:jacoco
