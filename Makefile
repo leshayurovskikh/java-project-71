@@ -1,2 +1,19 @@
 run-dist:
-	./build/install/app/bin/app
+	make -C run-dist
+
+build:
+	make -C app build
+
+clean:
+	make -C app clean
+
+test:
+	make -C app test
+
+report:
+	make -C app report
+
+lint:
+	make -C app lintp/bin/app
+
+.PHONY: bugit --versionild

@@ -21,8 +21,11 @@ public class Differ {
 
         List<Map<String, Object>> compareResult = Comparator.compare (file1,file2);
 
-        return Formatter.format (compareResult);
+        return Formatter.format (compareResult, format);
 
+    }
+    public static String generate(String filepath1, String filepath2) throws Exception {
+        return generate(filepath1, filepath2, "stylish");
     }
 
 public static String readFile(String filepath) throws Exception {

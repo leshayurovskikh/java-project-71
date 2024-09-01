@@ -11,7 +11,6 @@ public class App implements Callable<Integer> {
 
     @CommandLine.Parameters(index = "1",paramLabel = "filepath2", description = "path to second file")
     private String filepath2;
-
     @CommandLine.Option (
             names = {"-f", "--format"},
             paramLabel = "format",

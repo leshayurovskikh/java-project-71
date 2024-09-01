@@ -1,27 +1,19 @@
 package hexlet.code;
 
+import hexlet.code.formatters.Plain;
+import hexlet.code.formatters.Stylish;
+import hexlet.code.formatters.json;
 import java.util.List;
 import java.util.Map;
 
 public class Formatter {
-    public static String format(List<Map<String, Object>> compareResult ) {
-        String result = "";
-
-        for (var map : compareResult) {
-            switch ((String) map.get("status")) {
-                case "deleted": result+= "- " + map.get("field") + ": " + map.get("old value") + "\n";
-                    break;
-                case "unchanged": result+= "  " + map.get("field") + ": " + map.get("old value") + "\n";
-                    break;
-                case "changed": result+= "- " + map.get("field") + ": " + map.get("old value") + "\n";
-                    result+= "+ " + map.get("field") + ": " + map.get("new value") + "\n";
-                    break;
-                case "added": result+= "+ " + map.get("field") + ": " + map.get("new value") + "\n";
-                    break;
-                default:
-                    break;
-            }
-        }
-        return "{\n" + result + "}";
+    public static String format(List<Map<String, Object>> compareResult, String format)
+            throws Exception {
+        return switch (format) {
+            case "stylish" -> Stylish.stylishResult(compareResult);
+            case "plain" -> Plain.plainResult(compareResult);
+            case "json" -> json.jsonResult(compareResult);
+            default -> throw new Exception("This format is unknown: " + format);
+        };
     }
 }
