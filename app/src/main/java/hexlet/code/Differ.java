@@ -32,7 +32,7 @@ public class Differ {
         }
         String content = Files.readString(path);
         return content;
-}
+    }
 
 
     private static String getFileType(String filepath) {
