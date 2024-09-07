@@ -19,7 +19,7 @@ public final class DiffTest {
         expectedPlain = Files.readString(Paths.get("src/test/resources/plain"));
         expectedJson = Files.readString(Paths.get("src/test/resources/json.json"));
     }
-    
+
     @Test
     public void stylishJsonTest() throws Exception {
         String actual = Differ.generate("src/test/resources/file1.json",
