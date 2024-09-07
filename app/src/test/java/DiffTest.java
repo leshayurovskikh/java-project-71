@@ -3,7 +3,6 @@ import hexlet.code.Differ;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -19,13 +18,14 @@ public final class DiffTest {
         expectedStylish = Files.readString(Paths.get("src/test/resources/stylish"));
         expectedPlain = Files.readString(Paths.get("src/test/resources/plain"));
         expectedJson = Files.readString(Paths.get("src/test/resources/json.json"));
-        }
+    }
+    
     @Test
     public void stylishJsonTest() throws Exception {
         String actual = Differ.generate("src/test/resources/file1.json",
                     "src/test/resources/file2.json", "stylish");
         assertEquals(expectedStylish, actual);
-        }
+    }
 
     @Test
     public void stylishYamlTest() throws Exception {
@@ -62,9 +62,9 @@ public final class DiffTest {
                     "src/test/resources/file2.yaml", "json");
         actual = actual.replace("\r", "");
         assertEquals(expectedJson, actual);
-        }
+    }
 
-        @Test
+    @Test
     public void generateDefaultJsonTest() throws Exception {
         String actual = Differ.generate("src/test/resources/file1.json",
                 "src/test/resources/file2.json");
