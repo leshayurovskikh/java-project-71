@@ -30,4 +30,4 @@ lint:
 
 build-run: build run-dist
 
-.PHONY: buildocations: ${{github.workspace}}/app/build/reports/jacoco/test/jacocoTestReport.xml:jacoco
+.PHONY: build
