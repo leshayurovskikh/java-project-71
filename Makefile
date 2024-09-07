@@ -1,6 +1,9 @@
 run-dist:
 	make -C run-dist
 
+start:
+	make -C app start
+
 build:
 	make -C app build
 
@@ -14,6 +17,9 @@ report:
 	make -C app report
 
 lint:
-	make -C app lintp/bin/app
+	make -C app lint
+
+build-run:
+	make -C app build-run
 
 .PHONY: bugit --versionild
