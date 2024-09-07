@@ -24,9 +24,9 @@ public class Parser {
     private static ObjectMapper chooseFormat(String format) throws Exception {
         return switch (format) {
 
-              case "json" -> new ObjectMapper();
-             case "yml" -> new ObjectMapper(new YAMLFactory());
-             default -> throw new Exception("Format" + format + " not correct!");
+            case "json" -> new ObjectMapper();
+            case "yml" -> new ObjectMapper(new YAMLFactory());
+            default -> throw new Exception("Format" + format + " not correct!");
         };
     }
 }
