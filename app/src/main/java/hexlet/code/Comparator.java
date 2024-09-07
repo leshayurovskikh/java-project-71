@@ -1,6 +1,11 @@
 package hexlet.code;
-
-import java.util.*;
+import java.util.Objects;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.List;
+import java.util.TreeSet;
 
 public class Comparator {
     public static List<Map<String, Object>> compare(Map<String, Object> data1,
@@ -37,4 +42,4 @@ public class Comparator {
         }
         return resultList;
     }
-    }
+}
