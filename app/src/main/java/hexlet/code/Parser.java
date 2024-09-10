@@ -25,7 +25,7 @@ public class Parser {
         return switch (format) {
 
             case "json" -> new ObjectMapper();
-            case "yaml" -> new ObjectMapper(new YAMLFactory());
+            case "yaml", "yml" -> new ObjectMapper(new YAMLFactory());
             default -> throw new Exception("Format" + format + " not correct!");
         };
     }
